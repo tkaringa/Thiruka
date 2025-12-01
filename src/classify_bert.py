@@ -28,9 +28,26 @@ def load_data(filename):
     texts = [item.get('original_text', item['text']) for item in data]
     
     # create labels based on content (Politics detection)
+    political_keywords = [
+        "രാഷ്ട്രീയം", "രാഷ്ട്രീയ", # Politics
+        "തിരഞ്ഞെടുപ്പ്", # Election
+        "സിപിഎം", "സി.പി.എം", # CPM
+        "കോൺഗ്രസ്", # Congress
+        "ബിജെപി", "ബി.ജെ.പി", # BJP
+        "എൽഡിഎഫ്", "എൽ.ഡി.എഫ്", # LDF
+        "യുഡിഎഫ്", "യു.ഡി.എഫ്", # UDF
+        "സർക്കാർ", # Government
+        "മന്ത്രി", # Minister
+        "പാർട്ടി", # Party
+        "നേതാവ്", # Leader
+        "സ്ഥാനാർഥി", # Candidate
+        "വോട്ട്" # Vote
+    ]
+
     labels = []
     for item in data:
-        if "രാഷ്ട്രീയം" in item.get('original_text', '') or "രാഷ്ട്രീയ" in item.get('original_text', ''):
+        text = item.get('original_text', item['text'])
+        if any(k in text for k in political_keywords):
             labels.append(1)
         else:
             labels.append(0)
