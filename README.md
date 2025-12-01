@@ -109,3 +109,8 @@ run_all.bat
 
 ## Credits
 Developed for CS410.
+
+## Fun Fact
+I do graphic design on the side, the logo for Thiruka was put together as a side thing in order to take my mind off the code.
+
+![Thiruka Logo](process.png)
