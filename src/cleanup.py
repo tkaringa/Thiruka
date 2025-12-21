@@ -29,10 +29,9 @@ def main():
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     print(f"Cleaning up project at: {base_dir}")
     
-    # 1. Remove __pycache__
+    # Remove __pycache__
     remove_pycache(base_dir)
     
-    # 2. Remove training checkpoints (keep final model in models/)
     results_dir = os.path.join(base_dir, 'results')
     remove_checkpoints(results_dir)
     
